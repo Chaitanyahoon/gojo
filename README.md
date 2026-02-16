@@ -60,6 +60,17 @@ Use these hand signs to activate the techniques:
 
 3.  **Allow Camera Access**: When prompted, allow the browser to access your webcam.
 
+## 🚀 Deployment (Vercel)
+
+Click the button below to deploy this project instantly on Vercel:
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/Chaitanyahoon/gojo)
+
+Or deploy manually:
+1.  Push your code to GitHub.
+2.  Go to [Vercel](https://vercel.com) and import your repo.
+3.  Vercel will detect the static site automatically (no build command needed).
+
 ## 🛠️ Tech Stack
 
 *   **Three.js**: 3D Rendering & Particle Systems.
