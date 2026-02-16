@@ -347,7 +347,28 @@
                 await hands.send({ image: videoElement });
             }, width: 640, height: 480
         });
-        cameraUtils.start();
+        cameraUtils.start().catch(error => {
+            console.error(error);
+            const ui = document.getElementById('ui');
+            const errorBanner = document.createElement('div');
+            errorBanner.style.cssText = `
+                background: rgba(255, 0, 0, 0.6);
+                color: white;
+                padding: 20px;
+                margin-top: 20px;
+                border-radius: 10px;
+                font-weight: bold;
+                text-shadow: 1px 1px 2px black;
+            `;
+            if (error.name === 'NotReadableError') {
+                errorBanner.innerText = "⚠️ Camera is in use by another app!\nPlease close other tabs/apps using the camera.";
+            } else if (error.name === 'NotAllowedError') {
+                errorBanner.innerText = "⚠️ Camera access denied!\nPlease allow camera permission in your browser.";
+            } else {
+                errorBanner.innerText = `⚠️ Camera Error: ${error.message}`;
+            }
+            ui.appendChild(errorBanner);
+        });
 
         // Animation
         function animate() {
